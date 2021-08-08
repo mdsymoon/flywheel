@@ -1,0 +1,9 @@
+.destination-page{
+    background-image: url("../../images/unnamed.png");
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+  position: center center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
