@@ -22,7 +22,7 @@ const Cards = () => {
           />
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
-            <Button className="card-btn">Hire</Button>
+            <Button href="/destination" className="card-btn">Hire</Button>
           </Card.Body>
         </Card>
       </div>
@@ -35,7 +35,7 @@ const Cards = () => {
           />
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
-            <Button className="card-btn">Hire</Button>
+            <Button href="/destination" className="card-btn">Hire</Button>
           </Card.Body>
         </Card>
       </div>
@@ -48,7 +48,7 @@ const Cards = () => {
           />
           <Card.Body >
             <Card.Title>Card Title</Card.Title>
-            <Button className="card-btn">Hire</Button>
+            <Button href="/destination" className="card-btn">Hire</Button>
           </Card.Body>
         </Card>
       </div>
@@ -61,7 +61,7 @@ const Cards = () => {
           />
           <Card.Body >
             <Card.Title>Card Title</Card.Title>
-            <Button className="card-btn">Hire</Button>
+            <Button href="/destination" className="card-btn">Hire</Button>
           </Card.Body>
         </Card>
       </div>

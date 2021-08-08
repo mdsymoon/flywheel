@@ -1,11 +1,11 @@
 import React from "react";
-import "./Destination.css";
+import "./Result.css";
 import { useForm } from "react-hook-form";
 import img1 from "../../images/Map.png";
 import { Button } from "react-bootstrap";
 
 
-const Destination = () => {
+const Result = () => {
   const {
     register,
     handleSubmit,
@@ -27,7 +27,7 @@ const Destination = () => {
               <input {...register("exampleRequired", { required: true })}  />
               {errors.exampleRequired && <span>This field is required</span>}<br/>
 
-              <Button href="/Result" type="submit" className="submit" >Search</Button>
+              <Button type="submit" className="submit" >Search</Button>
             </form>
           </div>
         </div>
@@ -39,4 +39,4 @@ const Destination = () => {
   );
 };
 
-export default Destination;
+export default Result;
