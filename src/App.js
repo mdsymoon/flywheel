@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Homepage from "./Components/Homepage/Homepage";
@@ -9,10 +9,16 @@ import { Container } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 import img from "./images/steering-wheel.png";
 import Result from "./Components/Result/Result";
+import Login from "./Components/Login/Login";
+import { useState } from "react";
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+export const UserContext = createContext();
 
 function App() {
+  const [loggedin , setLoggedin] = useState({});
   return (
     <div className="App">
+      <UserContext.Provider value={[loggedin,setLoggedin]}>
       <Router>
         <Navbar  bg="light" expand="lg">
           <Container>
@@ -42,6 +48,19 @@ function App() {
                 >
                   Destination
                 </Nav.Link>
+                <Nav.Link
+                  href="/Login"
+                  style={{ fontSize: "20px", color: "black" }}
+                >
+                  Login
+                </Nav.Link>
+
+                <Nav.Link
+                 
+                  style={{ fontSize: "20px" }}
+                >
+                  {loggedin.name}
+                </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -54,15 +73,19 @@ function App() {
           <Route path="/home">
             <Homepage></Homepage>
           </Route>
-          <Route path="/destination">
+          <PrivateRoute path="/destination">
             <Destination></Destination>
-          </Route>
+          </PrivateRoute>
           <Route path="/Result">
             <Result></Result>
+          </Route>
+          <Route path="/Login">
+            <Login></Login>
           </Route>
 
         </Switch>
       </Router>
+      </UserContext.Provider>
     </div>
   );
 }

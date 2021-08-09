@@ -1,0 +1,25 @@
+.login-form{
+    border: 1px solid black;
+    width: 400px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px;
+}
+.login-form-input{
+    margin-bottom:20px;
+    width: 300px;
+    border: none; 
+    border-bottom: 1px solid black;
+}
+.login-button{
+    border:none;
+    width: 300px;
+    background-color:orangered;
+}
+.login-button:hover{
+  background-color:rgb(187, 55, 7)
+}
+.checkbox{
+    margin-right: px;
+    margin-bottom: 10px;
+}

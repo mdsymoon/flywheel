@@ -22,10 +22,10 @@ const Result = () => {
                 <h4>Select Location</h4>
                 <label >Pick From</label>
               <input {...register("name", { required: true })}  />
-              {errors.name && <span>Name is required</span>}<br/>
+              {errors.name && <span className="error">This field is required</span>}<br/>
               <label >Pick To</label>
               <input {...register("exampleRequired", { required: true })}  />
-              {errors.exampleRequired && <span>This field is required</span>}<br/>
+              {errors.exampleRequired && <span className="error">This field is required</span>}<br/>
 
               <Button type="submit" className="submit" >Search</Button>
             </form>
