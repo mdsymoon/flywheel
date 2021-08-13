@@ -12,9 +12,18 @@ import Result from "./Components/Result/Result";
 import Login from "./Components/Login/Login";
 import { useState } from "react";
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+
+
 export const UserContext = createContext();
 
+
+
 function App() {
+  
+  
+   
+  
+
   const [loggedin , setLoggedin] = useState({});
   return (
     <div className="App">
@@ -61,6 +70,8 @@ function App() {
                 >
                   {loggedin.name}
                 </Nav.Link>
+                
+                
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -73,9 +84,9 @@ function App() {
           <Route path="/home">
             <Homepage></Homepage>
           </Route>
-          <PrivateRoute path="/destination">
+          <Route path="/destination">
             <Destination></Destination>
-          </PrivateRoute>
+          </Route>
           <Route path="/Result">
             <Result></Result>
           </Route>

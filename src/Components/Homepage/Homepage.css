@@ -19,6 +19,7 @@
     color:orange;
 }
 .homepageText {
+  text-align: center;
   padding-top: 150px;
 }
 .homepageText h3{

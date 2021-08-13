@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from "./firebase.config";
@@ -11,10 +11,21 @@ import "./Login.css";
 import { Button } from "react-bootstrap";
 
 const Login = () => {
+  
+
   const history = useHistory();
   const location = useLocation();
-  const { from } = location.state || { from: { pathname: "/" } };
+  // const { from } = location.state || { from: { pathname: "/" } };
   const [loggedin, setLoggedin] = useContext(UserContext);
+
+  const [user, setUser] = useState({
+    isSignIn : false,
+    name: "",
+    email: "",
+    photo: ""
+  });
+
+
 
   if (firebase.apps.length === 0) {
     firebase.initializeApp(firebaseConfig);
@@ -26,22 +37,27 @@ const Login = () => {
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
-        const { displayName, email } = result.user;
-        const signInUser = { name: displayName, email };
+        const { displayName, email,photoURL } = result.user;
+        const logInUser ={ 
+          isSignIn: true,
+          name: displayName,
+          email: email,
+          photo: photoURL
+          
+        }
+        setUser(logInUser);
+        const signInUser = { name: displayName, email,photoURL };
         setLoggedin(signInUser);
-        history.replace(from);
+        // history.replace(from);
       })
-      .catch((error) => {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-      });
+      .catch(err =>{
+        console.log(err);
+        console.log(err.message);
+      })
+      
   };
+
+  
 
   const {
     register,
@@ -63,6 +79,7 @@ const Login = () => {
           <input {...register("exampleRequired", { required: true })} /><br/>
           {errors.exampleRequired && <span>This field is required</span>}
           <br /> */}
+          
           <input required className="login-form-input"></input><br/>
           <input required className="login-form-input"></input><br/>
           <input type="checkbox" name="checkbox" className="checkbox"></input>
@@ -73,6 +90,10 @@ const Login = () => {
       </div>
 
       <Button onClick={signWithGoogle}>Sign In</Button>
+      <Button >Sign out</Button>
+      {
+        user.isSignIn && <p>welcome {user.name}</p>
+      }
     </div>
   );
 };

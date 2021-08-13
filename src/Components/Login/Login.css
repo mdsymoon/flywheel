@@ -6,20 +6,22 @@
     padding: 20px;
 }
 .login-form-input{
+    margin: auto;
+    text-align: center;
     margin-bottom:20px;
-    width: 300px;
+    width: 350px;
     border: none; 
     border-bottom: 1px solid black;
 }
 .login-button{
     border:none;
-    width: 300px;
+    width: 350px;
     background-color:orangered;
 }
 .login-button:hover{
   background-color:rgb(187, 55, 7)
 }
 .checkbox{
-    margin-right: px;
+    margin-right: 5px;
     margin-bottom: 10px;
 }
